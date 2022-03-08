@@ -18,9 +18,9 @@ builder = SparkSession.builder \
 
 spark = configure_spark_with_delta_pip(builder).getOrCreate()
 
-# spark.range(5).write.format("delta").save(f"abfss://{container_name}@{storage_account_name}.dfs.core.windows.net/Mondayone")
+spark.range(5).write.format("delta").save(f"abfss://{container_name}@{storage_account_name}.dfs.core.windows.net/<filename>")
 print("Successfully written")
-df = spark.read.format("delta").load(f"abfss://{container_name}@{storage_account_name}.dfs.core.windows.net/Mondayone")
+df = spark.read.format("delta").load(f"abfss://{container_name}@{storage_account_name}.dfs.core.windows.net/<filename>")
 
 df.show()
 
